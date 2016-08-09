@@ -1,9 +1,4 @@
 {
   "name": "nonapod/Array2XML",
-  "description": "A renamed Array2XML library for use with the Commerce Amazon MWS Drupal module.",
-  "extra": {
-    "installer-paths": {
-      "libraries/{$name}": ["type:library"]
-    } 
-  }
+  "description": "A renamed Array2XML library for use with the Commerce Amazon MWS Drupal module."
 }
