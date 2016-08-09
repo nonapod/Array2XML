@@ -1,5 +1,4 @@
 {
   "name": "nonapod/Array2XML",
-  "description": "A renamed Array2XML library for use with the Commerce Amazon MWS Drupal module.",
-  "minimum-stability": "stable"
+  "description": "A renamed Array2XML library for use with the Commerce Amazon MWS Drupal module."
 }
