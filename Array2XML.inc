@@ -27,12 +27,12 @@
  *          - Removed htmlspecialchars() before adding to text node or attributes.
  *
  * Usage:
- *       $xml = Array2XML::createXML('root_node_name', $php_array);
+ *       $xml = CommerceEbayArray2XML::createXML('root_node_name', $php_array);
  *       echo $xml->saveXML();
  */
 
-class CommerceAmazonMWSArray2XML {
-  /* Class renamed to CommerceAmazonMWSArray2XML to avoid conflicts */
+class CommerceEbayArray2XML {
+  /* new addition: Renamed from Array2XML */
 
   private static $xml = null;
   private static $encoding = 'UTF-8';
@@ -71,7 +71,6 @@ class CommerceAmazonMWSArray2XML {
    */
   private static function &convert($node_name, $arr=array()) {
 
-    //print_arr($node_name);
     $xml = self::getXMLRoot();
     $node = $xml->createElement($node_name);
 
@@ -80,8 +79,7 @@ class CommerceAmazonMWSArray2XML {
       if(isset($arr['@attributes'])) {
         foreach($arr['@attributes'] as $key => $value) {
           if(!self::isValidTagName($key)) {
-            throw new Exception('[Array2XML] Illegal character in attribute name. attribute: '.$key
-              .' in node: '.$node_name);
+            throw new Exception('[CommerceEbayArray2XML] Illegal character in attribute name. attribute: '.$key.' in node: '.$node_name);
           }
           $node->setAttribute($key, self::bool2str($value));
         }
@@ -108,7 +106,7 @@ class CommerceAmazonMWSArray2XML {
       // recurse to get the node for that key
       foreach($arr as $key=>$value){
         if(!self::isValidTagName($key)) {
-          throw new Exception('[Array2XML] Illegal character in tag name. tag: '.$key.' in node: '.$node_name);
+          throw new Exception('[CommerceEbayArray2XML] Illegal character in tag name. tag: '.$key.' in node: '.$node_name);
         }
         if(is_array($value) && is_numeric(key($value))) {
           // MORE THAN ONE NODE OF ITS KIND;
